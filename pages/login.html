@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libra Engineering - Login</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        box-shadow: unset;
+        color: unset;
+        font-family: unset;
+        text-decoration: none;
+        list-style: none;
+    }
+
+    .container {
+        background-color: rgb(136, 233, 175);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container form {
+        background-color: white;
+        border-radius: 10px;
+        padding: 2rem;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 3px 30px rgba(72, 145, 100, 0.696);
+    }
+
+    form div {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+    }
+
+    form h1 {
+        font-size: 24px;
+        font-family: 'Lucida Sans Unicode', sans-serif;
+        color: rgb(14, 131, 14);
+    }
+
+    form label {
+        font-family: 'Lucida Sans Unicode', sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    form input {
+        height: 30px;
+        text-indent: 10px;
+        border: 1px solid rgb(14, 131, 14);
+        border-radius: 6px;
+        font-family: sans-serif;
+    }
+
+    form button {
+        height: 40px;
+        width: 80px;
+        background-color:rgb(14, 131, 14);
+        color: white;
+        font-family: 'Lucida Sans Unicode', sans-serif;
+        font-weight: bold;
+        border: none;
+        outline: none;
+        border-radius: 6px;
+        box-shadow: 0px 2px 2px #111;
+    }
+
+
+</style>
+<body>
+    <div class="container">
+        <form action="#">
+
+            <div>
+                <a href="../index.html"><h1>LIBRA ENGINEERING</h1></a>
+            </div>
+            <div>
+                <label for="username">username : </label>
+                <input type="text" id="username" required>
+            </div>
+            <div>
+                <label for="password">password : </label>
+                <input type="text" id="password" required>
+            </div>
+            <div>
+                <button type="submit">LOGIN</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

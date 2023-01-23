@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: unset;
+}
+
+header {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    height: 40px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 35px 20px;
+    background-color: #fdfdfd;
+    box-shadow: 0px 3px 3px #b6b5b5;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    margin-right: 25%;
+}
+
+header nav>* {
+    margin: 0 25px;
+}
+
+header nav div.save-invoice-btn {
+    padding: 10px 30px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    background-color: green;
+    color: #fff;
+    cursor: pointer;
+}
+
+header nav div.save-invoice-btn:hover {
+    color: #111;
+    background-color: #fff;
+    border: 1px solid #111;
+    transition: all ease-in-out .2s;
+}
+
+header nav a.cancel-invoice-btn {
+    padding: 10px 25px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    background-color: #b00606;
+    color: #fff;
+    cursor: pointer;
+}
+
+header nav a.cancel-invoice-btn:hover {
+    color: #111;
+    background-color: #fff;
+    border: 1px solid #111;
+    transition: all ease-in-out .2s;
+}
+
+/* ------main section --------- */
+
+main {
+    padding: 5rem 1rem;
+    margin: 10px 25px;
+}
+
+main .container {
+    display: grid;
+    gap: 1.5rem;
+    box-shadow: 0px 3px 30px #b6b5b5;
+}
+
+.address-fill-form {
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+.address-fill-form div {
+    display: grid;
+    align-items: center;
+    gap: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.address-fill-form div input {
+    width: 70%;
+    height: 32px;
+    font-family: inherit;
+    font-size: 14px;
+    text-indent: 10px;
+}
+
+.merchandise-fill-form {
+    padding: 10px 20px;
+    min-height: 300px;
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.merchandise-fill-form .parent {
+    display: grid;
+    grid-template-columns: 0.4fr 1.2fr 0.5fr 0.5fr;
+    column-gap: 10px;
+}
+
+.parent>* {
+    display: grid;
+    padding: 10px;
+}
+
+.parent div label {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold
+}
+
+.parent>div>input {
+    border: 1px solid #111;
+    border-radius: 6px;
+    height: 35px;
+    text-indent: 10px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.parent>div>label>select {
+    width: 60px;
+    height: 25px;
+    border-radius: 6px;
+    margin-left: 10px;
+}
+
+.add-field-btn {
+    display: flex;
+    float: right;
+    padding: 10px 25px;
+    justify-content: center;
+}
+
+.add-field-btn button[type="button"] {
+    height: 35px;
+    padding-inline: 15px;
+    border: 1px solid #111;
+    border-radius: 6px;
+    background-color: green;
+    color: #fff;
+    font-size: 13px;
+}
+
+.add-field-btn button[type="button"]:hover {
+    background-color: #fff;
+    color: #111;
+    transition: all ease-in-out .2s;
+}
+
+.summary-total-signature {
+    padding: 10px 25px;
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+span#amount-in-words,
+span#total {
+    text-decoration: underline dotted;
+    font-weight: bold;
+}
+
+.signature {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* responsive design */
+
+@media (max-width:800px) {
+    header {
+        height: 35px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        padding: 27px 15px;
+        background-color: #fdfdfd;
+        box-shadow: 0px 3px 3px #b6b5b5;
+    }
+
+    header nav {
+        display: flex;
+        align-items: center;
+        margin-right: 7%;
+    }
+
+    header nav>* {
+        margin: 0 25px;
+    }
+
+    .address-fill-form {
+        padding: 10px;
+        display: grid;
+        grid-template-columns: unset;
+        justify-content: unset;
+        align-items: unset;
+    }
+
+    .address-fill-form div {
+        display: grid;
+        align-items: center;
+        gap: 20px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .address-fill-form div input {
+        width: 70%;
+        height: 32px;
+        font-family: inherit;
+        font-size: 14px;
+        text-indent: 10px;
+    }
+
+    .merchandise-fill-form .parent {
+        display: grid;
+        grid-template-columns: 0.4fr 1.2fr 0.5fr 0.5fr;
+        column-gap: 1px;
+    }
+
+    .parent>* {
+        display: grid;
+        padding: 5px;
+    }
+
+    .parent div label {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        font-size: 14px;
+        font-weight: bold
+    }
+
+    .parent>div>input {
+        border: 1px solid #111;
+        border-radius: 6px;
+        height: 35px;
+        width: 100%;
+        text-indent: 10px;
+        font-family: inherit;
+        font-size: 14px;
+    }
+
+    .summary-total-signature {
+        padding: 10px 25px;
+        font-size: 14px;
+        display: grid;
+        grid-template-columns: unset;
+        justify-content: unset;
+        align-items: center;
+        row-gap: 1em;
+    }
+    .signature {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        font-weight: unset;
+    }
+}
+
+@media (max-width: 500px) {
+    .merchandise-fill-form .parent {
+        display: grid;
+        grid-template-columns: unset;
+        column-gap: 1px;
+    }
+
+    .parent>* {
+        display: grid;
+        padding: 5px;
+    }
+
+    .parent div label {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        font-size: 14px;
+        font-weight: bold
+    }
+
+    .parent>div>input {
+        border: 1px solid #111;
+        border-radius: 6px;
+        height: 35px;
+        width: 100%;
+        text-indent: 10px;
+        font-family: inherit;
+        font-size: 14px;
+    }
+}

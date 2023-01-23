@@ -1,0 +1,490 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans Unicode', sans-serif;
+}
+
+* a {
+    text-decoration: none;
+    color: black;
+}
+
+* ul {
+    list-style: none;
+    display: block;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    box-shadow: 0px 3px 30px rgba(71, 71, 71, 0.498);
+    z-index: 9999;
+    background-color: rgb(68, 65, 65);
+}
+
+header nav {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr;
+}
+
+header nav .logo {
+    font-weight: bold;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(76, 247, 76);
+}
+
+header nav .exchange-rates-live {
+    display: grid;
+    grid-template-columns: 0.5fr 2.5fr;
+}
+
+header nav .exchange-rates-live .currency-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+header nav .exchange-rates-live .currency-selector select {
+    padding: 6px;
+    font-size: 16px;
+    height: 45px;
+    width: 90px;
+    border: 1px solid;
+    border-radius: 10px;
+    box-shadow: auto;
+    cursor: pointer;
+}
+
+header nav .exchange-rates-live .reserve-currency {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+header nav .exchange-rates-live .reserve-currency .reserve-currency-value {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(20, 137, 20);
+
+}
+
+header nav .exchange-rates-live .reserve-currency .rse-cur-appreciation-depreciation-indicator {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+
+header nav .exchange-rates-live .reserve-currency .rse-cur-appreciation-depreciation-indicator .arrow-up {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(20, 137, 20);
+
+}
+
+header nav .exchange-rates-live .reserve-currency .rse-cur-appreciation-depreciation-indicator .arrow-down {
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+}
+
+header nav .exchange-rates-live .reserve-currency .rse-cur-appreciation-depreciation-indicator .percentage-up {
+    font-size: 11px;
+    font-weight: bold;
+    color: rgb(20, 137, 20);
+
+}
+
+/* --------------------main section styling--------------------- */
+
+main {
+    padding: 5rem 0 0 0;
+    display: grid;
+    grid-template-columns: 1.5fr 5fr 1.5fr;
+    height: 100vh;
+    overflow: scroll;
+}
+
+main .container {
+    margin-top: 1em;
+    display: grid;
+    grid-template-rows: 120px 1fr;
+    padding: 1em;
+}
+
+main .container .search-create-login {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+}
+
+main .container .search-create-login .search {
+    padding: 1em 0;
+    display: flex;
+    justify-content: center;
+}
+
+main .container .search-create-login .search input[type="text"]#search-invoice {
+    height: 45px;
+    width: 210px;
+    border: 1px solid;
+    border-radius: 10px;
+    box-shadow: auto;
+    text-indent: 5px;
+}
+
+main .container .search-create-login .search button[type="submit"] {
+    height: 45px;
+    width: 90px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: auto;
+    cursor: pointer;
+    background-color: rgb(68, 65, 65);
+    color: white;
+    font-weight: bold;
+}
+
+main .container .search-create-login .search button[type="submit"]:hover {
+    color: #111;
+    background-color: #fff;
+    border: 1px solid #111;
+    transition: all ease-in-out .2s;
+}
+
+main .container .search-create-login .create-login {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+main .container .search-create-login .create,
+main .container .search-create-login .login {
+    display: flex;
+    justify-content: center;
+    padding: 1em 0;
+}
+
+main .container .search-create-login .create a,
+main .container .search-create-login .login a {
+    height: 45px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.create a {
+    background: rgba(35, 167, 35, 0.901);
+}
+
+.login a {
+    background-color: rgb(51, 51, 213);
+}
+
+/* on hover */
+.create a:hover {
+    background: rgba(19, 104, 19, 0.901);
+}
+
+.login a:hover {
+    background-color: rgb(23, 23, 121);
+}
+
+/*  ------------recent invoices------------- */
+
+main .container .recent-invoices {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+
+main .container .recent-invoices .title {
+    font-size: 17px;
+}
+
+main .container .recent-invoices .list-of-rec-inv ul {
+    display: grid;
+    gap: 5px;
+    align-items: center;
+}
+
+main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item {
+    padding: 25px 10px;
+    display: grid;
+    grid-template-columns: 1.7fr 1.3fr 1fr 2fr;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(145, 139, 139, 0.689);
+    cursor: pointer;
+}
+
+main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item:hover {
+    background-color: rgba(63, 61, 61, 0.891);
+    color: #fff;
+    transition: all ease-in-out .2s;
+}
+
+main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .buyer-and-item-div .buyer-name {
+    font-weight: bold;
+    font-size: 16px;
+    text-indent: 5px;
+}
+
+main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .buyer-and-item-div .item-list {
+    font-size: 11px;
+    text-indent: 5px;
+}
+
+main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .date-and-time,
+main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .total-amount {
+    padding: 0px 5px;
+    display: flex;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .action-buttons>* {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 80px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+div.edit-btn {
+    background-color: rgb(234, 234, 29);
+    color: #111;
+}
+
+div.print-btn {
+    background-color: rgb(1, 157, 1);
+    color: white;
+
+}
+
+div.delete-btn {
+    background-color: rgb(192, 18, 18);
+    color: white;
+}
+
+/* on hover */
+main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .action-buttons>*:hover {
+    color: #111;
+    background-color: #fff;
+}
+
+
+
+@media (max-width:800px) {
+
+    header {
+        padding: 7px;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        box-shadow: 0px 3px 30px #6060607f;
+        z-index: 9999;
+        background-color: rgb(255, 255, 255);
+    }
+
+    header nav {
+        display: grid;
+        grid-template-columns: unset;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header nav .logo {
+        font-weight: bold;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(0, 81, 0);
+    }
+
+    header nav .exchange-rates-live {
+        display: grid;
+        grid-template-columns: 0.5fr 2.5fr;
+    }
+
+    header nav .exchange-rates-live .currency-selector {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 7px;
+    }
+
+    header nav .exchange-rates-live .currency-selector select {
+        padding: 6px;
+        font-size: 16px;
+        height: 40px;
+        width: 70px;
+        border: 1px solid;
+        border-radius: 6px;
+        box-shadow: auto;
+        cursor: pointer;
+    }
+
+    header nav .exchange-rates-live .reserve-currency {
+        padding: 7px;
+        display: flex;
+        gap: 10px;
+    }
+
+    header nav .exchange-rates-live .reserve-currency .reserve-currency-value {
+        padding: 7px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: 14px;
+        color: rgb(15, 149, 15);
+    }
+
+    header nav .exchange-rates-live .reserve-currency .rse-cur-appreciation-depreciation-indicator {
+        display: flex;
+        gap: 7px;
+        align-items: center;
+    }
+
+    header nav .exchange-rates-live .reserve-currency .rse-cur-appreciation-depreciation-indicator>* {
+        font-size: 11px;
+    }
+
+    /* maon section responsive */
+
+    main {
+        padding: 5rem 0 0 0;
+        display: grid;
+        grid-template-columns: unset;
+        height: 100vh;
+        overflow: scroll;
+    }
+
+    main .sidebar {
+        display: none;
+    }
+
+    main .container {
+        margin-top: 1em;
+        display: grid;
+        grid-template-rows: 200px 1fr;
+        padding: 10px;
+    }
+
+    main .container .search-create-login {
+        display: grid;
+        grid-template-columns: unset;
+        justify-content: start;
+        align-items: center;
+    }
+
+    main .container .search-create-login .create-login {
+        display: flex;
+        gap: 10px;
+        grid-template-columns: unset;
+        justify-content: unset;
+        align-items: unset;
+    }
+
+    main .container .search-create-login .create,
+    main .container .search-create-login .login {
+        display: flex;
+        justify-content: unset;
+        padding: 0px 10px;
+    }
+
+    main .container .search-create-login .create a,
+    main .container .search-create-login .login a {
+        font-size: 12px;
+        height: 45px;
+        width: 70px;
+    }
+
+    /* invoices tabs */
+    main .container .recent-invoices {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+
+    main .container .recent-invoices .title {
+        font-size: 17px;
+    }
+
+    main .container .recent-invoices .list-of-rec-inv ul {
+        display: grid;
+        gap: 5px;
+        align-items: center;
+    }
+
+    main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item {
+        display: block;
+        margin: 5px;
+        grid-template-columns: unset;
+        border-radius: 10px;
+        padding: 25px 10px;
+        width: 250px;
+        box-shadow: 0px 3px 10px rgba(145, 139, 139, 0.689);
+        cursor: pointer;
+    }
+
+    main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item:hover {
+        background-color: rgba(63, 61, 61, 0.891);
+        color: #fff;
+        transition: all ease-in-out .2s;
+    }
+
+    main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .buyer-and-item-div {
+        display: flex;
+        align-items: center;
+        margin: 5px;
+    }
+
+    main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .buyer-and-item-div .buyer-name {
+        font-weight: bold;
+        font-size: 16px;
+        text-indent: 5px;
+    }
+
+    main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .buyer-and-item-div .item-list {
+        display: none;
+    }
+
+    main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .date-and-time,
+    main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .total-amount {
+        margin: 10px;
+    }
+
+    main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .action-buttons {
+        display: none;
+    }
+}

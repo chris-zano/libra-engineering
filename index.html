@@ -37,186 +37,32 @@
         <div class="container">
             <div class="search-create-login">
                 <div class="search">
-                    <form action="">
+                    <form action="" id="search-form">
                         <input type="text" id="search-invoice" placeholder="search for invoice....." required>
-                        <button type="submit">SEARCH</button>
+                        <button type="submit" id="search-btn">SEARCH</button>
+                        <div class="search-results hidden" id="search-results">
+                            <div class="close">
+                                <div id="find-count">23 items found</div>
+                                <div id="close-btn">&times;</div>
+                            </div>
+                            <div id="results-append-here" class="results-append-here"></div>
+                        </div>
                     </form>
                 </div>
                 <div class="create-login">
                     <div class="create">
                         <a href="./pages/create-invoice.html">CREATE</a>
                     </div>
-                    <div class="login hidden">
+                    <div class="login hidden" id="login-btn">
                         <a href="./pages/login.html">LOGIN</a>
                     </div>
                 </div>
             </div>
 
             <div class="recent-invoices">
-                <h2 class="title">RECENT INVOICES</h2>
-                <div class="list-of-rec-inv">
-                    <ul>
-                        <li class="invoice-list-item" id="99015">
-                            <div class="buyer-and-item-div">
-                                <div class="buyer-name">The buyer's name and address</div>
-                                <div class="item-list">2 air filters ...</div>
-                            </div>
-                            <div class="date-and-time">
-                                <div class="date">12/01/2023</div>
-                                <div class="time">9 : 23 am</div>
-                            </div>
-                            <div class="total-amount">Ghc 123,000.00</div>
-                            <div class="action-buttons">
-                                <div class="edit-btn">EDIT</div>
-                                <div class="print-btn">PRINT</div>
-                                <div class="delete-btn">DELETE</div>
-                            </div>
-                        </li>
-                        <li class="invoice-list-item" id="99015">
-                            <div class="buyer-and-item-div">
-                                <div class="buyer-name">The buyer's name</div>
-                                <div class="item-list">2 air filters ...</div>
-                            </div>
-                            <div class="date-and-time">
-                                <div class="date">12/01/2023</div>
-                                <div class="time">9 : 23 am</div>
-                            </div>
-                            <div class="total-amount">Ghc 123,000.00</div>
-                            <div class="action-buttons">
-                                <div class="edit-btn">EDIT</div>
-                                <div class="print-btn">PRINT</div>
-                                <div class="delete-btn">DELETE</div>
-                            </div>
-                        </li>
-                        <li class="invoice-list-item" id="99015">
-                            <div class="buyer-and-item-div">
-                                <div class="buyer-name">The buyer's name</div>
-                                <div class="item-list">2 air filters ...</div>
-                            </div>
-                            <div class="date-and-time">
-                                <div class="date">12/01/2023</div>
-                                <div class="time">9 : 23 am</div>
-                            </div>
-                            <div class="total-amount">Ghc 123,000.00</div>
-                            <div class="action-buttons">
-                                <div class="edit-btn">EDIT</div>
-                                <div class="print-btn">PRINT</div>
-                                <div class="delete-btn">DELETE</div>
-                            </div>
-                        </li>
-                        <li class="invoice-list-item" id="99015">
-                            <div class="buyer-and-item-div">
-                                <div class="buyer-name">The buyer's name</div>
-                                <div class="item-list">2 air filters ...</div>
-                            </div>
-                            <div class="date-and-time">
-                                <div class="date">12/01/2023</div>
-                                <div class="time">9 : 23 am</div>
-                            </div>
-                            <div class="total-amount">Ghc 123,000.00</div>
-                            <div class="action-buttons">
-                                <div class="edit-btn">EDIT</div>
-                                <div class="print-btn">PRINT</div>
-                                <div class="delete-btn">DELETE</div>
-                            </div>
-                        </li>
-                        <li class="invoice-list-item" id="99015">
-                            <div class="buyer-and-item-div">
-                                <div class="buyer-name">The buyer's name</div>
-                                <div class="item-list">2 air filters ...</div>
-                            </div>
-                            <div class="date-and-time">
-                                <div class="date">12/01/2023</div>
-                                <div class="time">9 : 23 am</div>
-                            </div>
-                            <div class="total-amount">Ghc 123,000.00</div>
-                            <div class="action-buttons">
-                                <div class="edit-btn">EDIT</div>
-                                <div class="print-btn">PRINT</div>
-                                <div class="delete-btn">DELETE</div>
-                            </div>
-                        </li>
-                        <li class="invoice-list-item" id="99015">
-                            <div class="buyer-and-item-div">
-                                <div class="buyer-name">The buyer's name</div>
-                                <div class="item-list">2 air filters ...</div>
-                            </div>
-                            <div class="date-and-time">
-                                <div class="date">12/01/2023</div>
-                                <div class="time">9 : 23 am</div>
-                            </div>
-                            <div class="total-amount">Ghc 123,000.00</div>
-                            <div class="action-buttons">
-                                <div class="edit-btn">EDIT</div>
-                                <div class="print-btn">PRINT</div>
-                                <div class="delete-btn">DELETE</div>
-                            </div>
-                        </li>
-                        <li class="invoice-list-item" id="99015">
-                            <div class="buyer-and-item-div">
-                                <div class="buyer-name">The buyer's name</div>
-                                <div class="item-list">2 air filters ...</div>
-                            </div>
-                            <div class="date-and-time">
-                                <div class="date">12/01/2023</div>
-                                <div class="time">9 : 23 am</div>
-                            </div>
-                            <div class="total-amount">Ghc 123,000.00</div>
-                            <div class="action-buttons">
-                                <div class="edit-btn">EDIT</div>
-                                <div class="print-btn">PRINT</div>
-                                <div class="delete-btn">DELETE</div>
-                            </div>
-                        </li>
-                        <li class="invoice-list-item" id="99015">
-                            <div class="buyer-and-item-div">
-                                <div class="buyer-name">The buyer's name</div>
-                                <div class="item-list">2 air filters ...</div>
-                            </div>
-                            <div class="date-and-time">
-                                <div class="date">12/01/2023</div>
-                                <div class="time">9 : 23 am</div>
-                            </div>
-                            <div class="total-amount">Ghc 123,000.00</div>
-                            <div class="action-buttons">
-                                <div class="edit-btn">EDIT</div>
-                                <div class="print-btn">PRINT</div>
-                                <div class="delete-btn">DELETE</div>
-                            </div>
-                        </li>
-                        <li class="invoice-list-item" id="99015">
-                            <div class="buyer-and-item-div">
-                                <div class="buyer-name">The buyer's name</div>
-                                <div class="item-list">2 air filters ...</div>
-                            </div>
-                            <div class="date-and-time">
-                                <div class="date">12/01/2023</div>
-                                <div class="time">9 : 23 am</div>
-                            </div>
-                            <div class="total-amount">Ghc 123,000.00</div>
-                            <div class="action-buttons">
-                                <div class="edit-btn">EDIT</div>
-                                <div class="print-btn">PRINT</div>
-                                <div class="delete-btn">DELETE</div>
-                            </div>
-                        </li>
-                        <li class="invoice-list-item" id="99015">
-                            <div class="buyer-and-item-div">
-                                <div class="buyer-name">The buyer's name</div>
-                                <div class="item-list">2 air filters ...</div>
-                            </div>
-                            <div class="date-and-time">
-                                <div class="date">12/01/2023</div>
-                                <div class="time">9 : 23 am</div>
-                            </div>
-                            <div class="total-amount">Ghc 123,000.00</div>
-                            <div class="action-buttons">
-                                <div class="edit-btn">EDIT</div>
-                                <div class="print-btn">PRINT</div>
-                                <div class="delete-btn">DELETE</div>
-                            </div>
-                        </li>
-                    </ul>
+                <h2 class="title" id="rec-title">RECENT INVOICES</h2>
+                <div class="list-of-rec-inv" id="list-of-rec-inv">
+                    <ul id="unodered-list-invoices"></ul>
                 </div>
             </div>
         </div>
@@ -224,5 +70,5 @@
 
     </main>
 </body>
-
+<script src="./js/index.js" type="module"></script>
 </html>

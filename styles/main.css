@@ -23,9 +23,9 @@ header {
     padding: 10px;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
-    box-shadow: 0px 3px 30px rgba(71, 71, 71, 0.498);
+    box-shadow: 0px 3px 30px rgba(36, 35, 35, 0.75);
     z-index: 9999;
-    background-color: rgb(68, 65, 65);
+    background-color: #ffffff;
 }
 
 header nav {
@@ -133,6 +133,7 @@ main .container .search-create-login .search {
     padding: 1em 0;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 main .container .search-create-login .search input[type="text"]#search-invoice {
@@ -147,6 +148,7 @@ main .container .search-create-login .search input[type="text"]#search-invoice {
 main .container .search-create-login .search button[type="submit"] {
     height: 45px;
     width: 90px;
+    margin: 10px;
     border: none;
     border-radius: 10px;
     box-shadow: auto;
@@ -162,6 +164,82 @@ main .container .search-create-login .search button[type="submit"]:hover {
     border: 1px solid #111;
     transition: all ease-in-out .2s;
 }
+
+.hidden {
+    position: unset;
+    transform: scale(0);
+    display: none;
+}
+
+main .container .search-create-login .search div.search-results {
+    background-color: white;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 50px;
+    z-index: 999;
+    padding: 5px 7px;
+    min-height: 65px;
+    max-height: max-content;
+    border-radius: 6px;
+    box-shadow: 0px 3px 20px #504f4f;
+    display: grid;
+}
+
+.close {
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+    align-items: center;
+}
+
+.close div#find-count {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.close div#close-btn {
+    display: flex;
+    float: right;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+main .container .search-create-login .search div.search-results div.search-res {
+    margin: 3px 0px;
+    padding: 3px 2px;
+    display: grid;
+    align-items: center;
+    border-bottom: 1px solid #111;
+    border-radius: 5px;
+    transition: all ease-in-out .3s;
+    cursor: pointer;
+}
+
+main .container .search-create-login .search div.search-results div.search-res:hover {
+    background-color: #dad5d5;
+    color: #e30505;
+}
+
+main .container .search-create-login .search div.search-results div.search-res div.upper-hold {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+}
+
+main .container .search-create-login .search div.search-results .res-title {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+main .container .search-create-login .search div.search-results .price-tot {
+    font-weight: bold;
+    font-size: 11px;
+}
+
+main .container .search-create-login .search div.search-results .prods {
+    font-weight: bold;
+    font-size: 12px;
+}
+
 
 main .container .search-create-login .create-login {
     display: grid;
@@ -216,8 +294,10 @@ main .container .recent-invoices {
 }
 
 
-main .container .recent-invoices .title {
+main .container .recent-invoices h2.title,
+div.title {
     font-size: 17px;
+    font-weight: bold;
 }
 
 main .container .recent-invoices .list-of-rec-inv ul {
@@ -279,15 +359,9 @@ main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .actio
     cursor: pointer;
 }
 
-div.edit-btn {
+div.view-btn {
     background-color: rgb(234, 234, 29);
     color: #111;
-}
-
-div.print-btn {
-    background-color: rgb(1, 157, 1);
-    color: white;
-
 }
 
 div.delete-btn {
@@ -303,7 +377,7 @@ main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .actio
 
 
 
-@media (max-width:800px) {
+@media (max-width:1000px) {
 
     header {
         padding: 7px;
@@ -397,22 +471,92 @@ main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .actio
         display: grid;
         grid-template-rows: 200px 1fr;
         padding: 10px;
+        justify-content: center;
+        width: 100%;
     }
 
     main .container .search-create-login {
         display: grid;
-        grid-template-columns: unset;
-        justify-content: start;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
         align-items: center;
     }
 
-    main .container .search-create-login .create-login {
+    main .container .search-create-login .search {
         display: flex;
-        gap: 10px;
-        grid-template-columns: unset;
         justify-content: unset;
-        align-items: unset;
+        gap: 10px;
+        padding: 0px 10px;
     }
+
+    main .container .search-create-login .search div.search-results {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        padding: 5px 7px;
+        min-height: 65px;
+        max-height: 200px;
+        overflow-y: scroll;
+        border-radius: 6px;
+        display: grid;
+    }
+
+    .close {
+        display: grid;
+        grid-template-columns: 1.5fr 0.5fr;
+        align-items: center;
+    }
+
+    .close div#find-count {
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .close div#close-btn {
+        display: flex;
+        float: right;
+        font-weight: bolder;
+    }
+
+    main .container .search-create-login .search div.search-results div.search-res {
+        margin: 3px 0px;
+        padding: 3px 2px;
+        display: grid;
+        align-items: center;
+        border-bottom: 1px solid #111;
+        border-radius: 5px;
+        transition: all ease-in-out .3s;
+        cursor: pointer;
+    }
+
+    main .container .search-create-login .search div.search-results div.search-res:hover {
+        background-color: #dad5d5;
+        color: #e30505;
+    }
+
+    main .container .search-create-login .search div.search-results div.search-res div.upper-hold {
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr;
+    }
+
+    main .container .search-create-login .search div.search-results .res-title {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    main .container .search-create-login .search div.search-results .price-tot {
+        font-weight: bold;
+        font-size: 11px;
+    }
+
+    main .container .search-create-login .search div.search-results .prods {
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+
 
     main .container .search-create-login .create,
     main .container .search-create-login .login {
@@ -438,27 +582,31 @@ main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .actio
 
     main .container .recent-invoices .title {
         font-size: 17px;
+        text-align: center;
     }
 
     main .container .recent-invoices .list-of-rec-inv ul {
+        width: 100%;
         display: grid;
         gap: 5px;
         align-items: center;
+        justify-content: center;
     }
 
     main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item {
-        display: block;
+        display: grid;
+        justify-content: center;
         margin: 5px;
         grid-template-columns: unset;
         border-radius: 10px;
         padding: 25px 10px;
-        width: 250px;
+        width: 80vw;
         box-shadow: 0px 3px 10px rgba(145, 139, 139, 0.689);
         cursor: pointer;
     }
 
     main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item:hover {
-        background-color: rgba(63, 61, 61, 0.891);
+        background-color: rgba(106, 97, 97, 0.891);
         color: #fff;
         transition: all ease-in-out .2s;
     }
@@ -466,6 +614,7 @@ main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .actio
     main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .buyer-and-item-div {
         display: flex;
         align-items: center;
+        justify-content: center;
         margin: 5px;
     }
 
@@ -475,16 +624,9 @@ main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .actio
         text-indent: 5px;
     }
 
-    main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .buyer-and-item-div .item-list {
-        display: none;
-    }
-
-    main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .date-and-time,
-    main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .total-amount {
-        margin: 10px;
-    }
-
-    main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .action-buttons {
-        display: none;
+    main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .buyer-and-item-div .item-list,
+    main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .total-amount,
+    main .container .recent-invoices .list-of-rec-inv ul li.invoice-list-item .date-and-time {
+        margin: 10px
     }
 }

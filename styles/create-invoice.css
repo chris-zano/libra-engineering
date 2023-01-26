@@ -7,33 +7,20 @@
     color: unset;
 }
 
-header {
-    position: fixed;
-    right: 0;
-    left: 0;
-    top: 0;
-    z-index: 1;
-    height: 40px;
+nav {
     display: flex;
-    justify-content: end;
-    align-items: center;
-    padding: 35px 20px;
-    background-color: #fdfdfd;
-    box-shadow: 0px 3px 3px #b6b5b5;
-}
-
-header nav {
-    display: flex;
+    justify-content: center;
     align-items: center;
     margin-right: 25%;
+    margin-block: 10px;
 }
 
-header nav>* {
+nav>* {
     margin: 0 25px;
 }
 
-header nav div.save-invoice-btn {
-    padding: 10px 30px;
+.save-invoice-btn button {
+    padding: 12px 30px;
     border: 1px solid #fff;
     border-radius: 10px;
     background-color: green;
@@ -41,15 +28,15 @@ header nav div.save-invoice-btn {
     cursor: pointer;
 }
 
-header nav div.save-invoice-btn:hover {
+.save-invoice-btn button:hover {
     color: #111;
     background-color: #fff;
     border: 1px solid #111;
     transition: all ease-in-out .2s;
 }
 
-header nav a.cancel-invoice-btn {
-    padding: 10px 25px;
+.cancel-invoice-btn button {
+    padding: 12px 25px;
     border: 1px solid #fff;
     border-radius: 10px;
     background-color: #b00606;
@@ -57,7 +44,7 @@ header nav a.cancel-invoice-btn {
     cursor: pointer;
 }
 
-header nav a.cancel-invoice-btn:hover {
+.cancel-invoice-btn button:hover {
     color: #111;
     background-color: #fff;
     border: 1px solid #111;
@@ -67,8 +54,8 @@ header nav a.cancel-invoice-btn:hover {
 /* ------main section --------- */
 
 main {
-    padding: 5rem 1rem;
-    margin: 10px 25px;
+    padding: 3rem 1rem;
+    margin: 10px;
 }
 
 main .container {
@@ -104,7 +91,7 @@ main .container {
 
 .merchandise-fill-form {
     padding: 10px 20px;
-    min-height: 300px;
+    min-height: 200px;
     max-height: 500px;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -114,6 +101,10 @@ main .container {
     display: grid;
     grid-template-columns: 0.4fr 1.2fr 0.5fr 0.5fr;
     column-gap: 10px;
+    border-radius: 6px;
+    box-shadow: 0px 3px 3px #111;
+    background-color: #fff;
+    margin: 10px 0;
 }
 
 .parent>* {
@@ -138,7 +129,7 @@ main .container {
     font-size: 14px;
 }
 
-.parent>div>label>select {
+select {
     width: 60px;
     height: 25px;
     border-radius: 6px;
@@ -155,7 +146,7 @@ main .container {
 .add-field-btn button[type="button"] {
     height: 35px;
     padding-inline: 15px;
-    border: 1px solid #111;
+    border: 1px solid #fff;
     border-radius: 6px;
     background-color: green;
     color: #fff;
@@ -163,9 +154,30 @@ main .container {
 }
 
 .add-field-btn button[type="button"]:hover {
+    border: 1px solid #111;
     background-color: #fff;
     color: #111;
     transition: all ease-in-out .2s;
+}
+
+#delete-row-btn {
+    height: 35px;
+    padding-inline: 15px;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    background-color: #d50b0b;
+    color: #fff;
+    font-size: 13px;
+    transition: all ease-in-out .3s;
+}
+
+#delete-row-btn:hover {
+    
+    border: 1px solid #111;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #111;
+    font-size: 13px;
 }
 
 .summary-total-signature {
@@ -175,6 +187,11 @@ main .container {
     grid-template-columns: 2fr 1fr;
     justify-content: center;
     align-items: center;
+}
+
+.parent div > span {
+    font-size: 14px;
+    font-weight: bold;
 }
 
 span#amount-in-words,
@@ -194,23 +211,13 @@ span#total {
 /* responsive design */
 
 @media (max-width:800px) {
-    header {
-        height: 35px;
-        display: flex;
-        justify-content: end;
-        align-items: center;
-        padding: 27px 15px;
-        background-color: #fdfdfd;
-        box-shadow: 0px 3px 3px #b6b5b5;
-    }
-
-    header nav {
+    nav {
         display: flex;
         align-items: center;
         margin-right: 7%;
     }
 
-    header nav>* {
+    nav>* {
         margin: 0 25px;
     }
 

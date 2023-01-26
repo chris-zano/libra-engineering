@@ -1,0 +1,20 @@
+{
+  "name": "libra-engineering",
+  "version": "1.0.0",
+  "description": "",
+  "main": "towords.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chris-zano/libra-engineering.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chris-zano/libra-engineering/issues"
+  },
+  "homepage": "https://github.com/chris-zano/libra-engineering#readme"
+}

@@ -32,7 +32,7 @@ function main() {
     }
     else {
         alert('Please Login to Continue.......')
-        window.location.href = '../pages/login.html';
+        window.location.href = '/pages/login.html';
     }
 
     eventListeners()

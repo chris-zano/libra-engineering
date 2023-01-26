@@ -44,7 +44,7 @@ function main() {
             .then((querySnapshot) => {
                 if(querySnapshot.docs.length === 0) {
                     alert('No user in the database! Sign up instead')
-                    window.location.href = '../pages/signup.html'
+                    window.location.href = '/pages/signup.html'
                 }
                 else if(querySnapshot.docs.length === 1){
                     querySnapshot.forEach((doc) => {
@@ -55,7 +55,7 @@ function main() {
                                 console.log('passwords match')
                                 //redirect back to the home page
                                 window.sessionStorage.setItem('authState', JSON.stringify(true))
-                                window.location.href = '../index.html'
+                                window.location.href = '/index.html'
                             }
                             else { //if passwordds do not match alert user and clear password field and change button back to normal
                                 alert('passwords don\'t match');

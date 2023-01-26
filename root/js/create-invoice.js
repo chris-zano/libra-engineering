@@ -88,7 +88,7 @@ function generateNetPrice() {
     }
 
     document.getElementById('total').textContent = sum
-    document.getElementById('amount-in-words').textContent = towords(sum)
+    // document.getElementById('amount-in-words').textContent = towords(sum)
 }
 
 

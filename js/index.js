@@ -27,15 +27,15 @@ else {
 function main() {
     //connect to firebase and load the data needed to feed this section
     if (getAuthState().state === true) {
-        document.getElementById('login-btn').style.display = 'none'
-        fetchInvoices()
+        document.getElementById('login-btn').style.display = 'none';
+        fetchInvoices();
     }
     else {
         alert('Please Login to Continue.......')
         window.location.href = '/pages/login.html';
     }
 
-    eventListeners()
+    eventListeners();
 }
 
 function getAuthState() {
@@ -50,50 +50,104 @@ function getAuthState() {
 function eventListeners() {
 
     document.getElementById('search-form').addEventListener('submit', (e) => {
-        const searchValue = document.getElementById('search-invoice').value
-        const searchBtn = document.getElementById('search-btn')
-        const searchBox = document.getElementById('search-results')
+        const searchValue = document.getElementById('search-invoice').value;
+        const searchBtn = document.getElementById('search-btn');
+        const searchBox = document.getElementById('search-results');
         const closeBtn = document.getElementById('close-btn');
 
-        e.preventDefault()
-        searchBtn.textContent = 'Searching...'
-        searchBox.classList.remove('hidden')
-        closeBtn.addEventListener('click', () => searchBox.classList.add('hidden'))
+        e.preventDefault();
+
+        searchBtn.textContent = 'Searching...';
+        searchBox.classList.remove('hidden');
+        closeBtn.addEventListener('click', () => searchBox.classList.add('hidden'));
 
         document.addEventListener('click', (e) => {
-            e.preventDefault()
-            searchBox.classList.add('hidden')
+            e.preventDefault();
+            searchBox.classList.add('hidden');
         })
 
-        searchForInvoice(e, searchValue, searchBtn)
-        // const sBoxDiv = document.getElementsByClassName('results-append-here')
-        // document.getElementById('find-count').textContent = sBoxDiv.length +1 + ' items found'
-    });
+        searchForInvoice(e, searchValue, searchBtn);
 
-    // document.getElementById('view-btn').addEventListener('click', viewInvoice);
-    // document.getElementById('delete-btn').addEventListener('click', deleteInvoice);
+        // const sBoxDiv = document.getElementsByClassName('results-append-here')
+        // document.getElementById('find-count').textContent = sBoxDiv.length +1 + ' items found';
+
+    });
 }
 
 function totalToString(total) {
-    total = total.toString()
-    total = [...total]
+    total = total.toString();
+    total = [...total];
 
-    if (total[total.length - 3] != undefined) {
-        total.splice(total.length - 3, 0, ',')
+    if (total.length - 3 == 1) {
+        total.splice(total.length - 3, 0, ',');
     }
-    if (total[total.length - 7] != undefined) {
+    else if (total.length - 4 == 1) {
+        total.splice(total.length - 3, 0, ',');
+    }
+    else if (total.length - 5 == 1) {
+        total.splice(total.length - 3, 0, ',');
+    }
+    else if (total.length - 6 == 1) {
+        total.splice(total.length - 3, 0, ',');
         total.splice(total.length - 7, 0, ',')
     }
-    if (total[total.length - 10] != undefined) {
-        total.splice(total.length - 10, 0, ',')
+    else if (total.length - 7 == 1) {
+        total.splice(total.length - 3, 0, ',');
+        total.splice(total.length - 7, 0, ',')
     }
-    if (total[total.length - 13] != undefined) {
-        total.splice(total.length - 13, 0, ',')
+    else if (total.length - 8 == 1) {
+        total.splice(total.length - 3, 0, ',');
+        total.splice(total.length - 7, 0, ',')
     }
-    if (total[total.length - 16] != undefined) {
-        total.splice(total.length - 16, 0, ',')
+    else if (total.length - 9  == 1) {
+        total.splice(total.length - 3, 0, ',');
+        total.splice(total.length - 7, 0, ',')
+        total.splice(total.length - 11, 0, ',')
     }
-    let newTotalString = ''
+    else if (total.length - 10  == 1) {
+        total.splice(total.length - 3, 0, ',');
+        total.splice(total.length - 7, 0, ',')
+        total.splice(total.length - 11, 0, ',')
+    }
+    else if (total.length - 11 == 1) {
+        total.splice(total.length - 3, 0, ',');
+        total.splice(total.length - 7, 0, ',')
+        total.splice(total.length - 11, 0, ',')
+    }
+    else if (total.length - 12 == 1) {
+        total.splice(total.length - 3, 0, ',');
+        total.splice(total.length - 7, 0, ',')
+        total.splice(total.length - 11, 0, ',')
+        total.splice(total.length - 15, 0, ',')
+    }
+    else if (total.length - 13 == 1) {
+        total.splice(total.length - 3, 0, ',');
+        total.splice(total.length - 7, 0, ',')
+        total.splice(total.length - 11, 0, ',')
+        total.splice(total.length - 15, 0, ',')
+    }
+    else if (total.length - 14 == 1) {
+        total.splice(total.length - 3, 0, ',');
+        total.splice(total.length - 7, 0, ',')
+        total.splice(total.length - 11, 0, ',')
+        total.splice(total.length - 15, 0, ',')
+    }
+    else if (total.length - 15 == 1) {
+        total.splice(total.length - 3, 0, ',');
+        total.splice(total.length - 7, 0, ',')
+        total.splice(total.length - 11, 0, ',')
+        total.splice(total.length - 15, 0, ',')
+        total.splice(total.length - 19, 0, ',')
+    }
+    else if (total.length - 16 == 1) {
+        total.splice(total.length - 3, 0, ',');
+        total.splice(total.length - 7, 0, ',')
+        total.splice(total.length - 11, 0, ',')
+        total.splice(total.length - 15, 0, ',')
+        total.splice(total.length - 19, 0, ',')
+    }
+
+    let newTotalString = '';
     total.forEach(num => {
         newTotalString = newTotalString + num
     })
@@ -108,24 +162,23 @@ function fetchInvoices() {
     db.collection("invoices-main")
         .get()
         .then((querySnapshot) => {
-            if (querySnapshot.docs.length === 0) {
+            if (querySnapshot.docs.length === 0 || querySnapshot.docs == undefined) {
                 //create a div to inform user that invoice database is empty
-                document.getElementById('rec-title').style.display = 'none'
+                document.getElementById('rec-title').style.display = 'none';
 
                 const infoDiv = document.createElement('div');
-                infoDiv.classList.add('title')
+                infoDiv.classList.add('title');
                 infoDiv.innerHTML = 'No recent Invoices';
-                document.getElementById('list-of-rec-inv').append(infoDiv)
+                document.getElementById('list-of-rec-inv').append(infoDiv);
             }
             else {
                 querySnapshot.forEach((doc) => {
-                    const receipient = doc.data().Address.receipient
-                    const dateAndTime = (doc.data().Address.dateAndTime)
-
-                    const oneProduct = doc.data().Orders[0].order.description
-                    const currency = doc.data().Orders[0].order.price.currency
-                    let total = (doc.data().total)
-                    total = totalToString(total)
+                    const receipient = doc.data().Address.receipient;
+                    const dateAndTime = doc.data().Address.dateAndTime;
+                    const oneProduct = doc.data().Orders[0].order.description;
+                    const currency = doc.data().Orders[0].order.price.currency;
+                    let total = doc.data().total;
+                    total = totalToString(total);
 
                     const invoiceCard = document.createElement('li');
                     invoiceCard.classList.add('invoice-list-item');
@@ -140,8 +193,8 @@ function fetchInvoices() {
                         </div>
                         <div class="total-amount">${currency} ${total}.00</div>
                         <div class="action-buttons">
-                            <div class="view-btn" id="${doc.id}">View</div>
-                            <div class="delete-btn" id="${doc.id}">DELETE</div>
+                            <button type="button" class="view-btn" id="${doc.id}">View</button>
+                            <button type="button" class="delete-btn" id="${doc.id}">DELETE</button>
                         </div>
                     `;
                     document.getElementById('unodered-list-invoices').append(invoiceCard)

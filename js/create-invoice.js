@@ -16,42 +16,37 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', main);
-}
-else {
-    main();
-}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', main);
+else main();
 
 function main() {
-
+    //select the form fields and add a submit event listener
     document.querySelector('form').addEventListener('submit', (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         const merchForm = document.getElementsByClassName('merchandise-fill-form');
-        if (merchForm[0].children.length == 0) {
-            alert('Cannot save an empty form')
+        if (merchForm[0].children.length == 0) { // if the form is empty, alert the user
+            alert('Cannot save an empty form');
         }
-        else {
-            fetchInputs()
+        else { //if the form is not empty, fetch the inputs of the form
+            fetchInputs();
         }
     });
 
-    callForAutoGenerateEventListener()
+    callForAutoGenerateEventListener();
 
-    document.getElementById('add-field-btn').addEventListener('click', addNewField)
+    document.getElementById('add-field-btn').addEventListener('click', addNewField);
 
     document.getElementById('delete-row-btn').addEventListener('click', (e) => {
         e.target.parentElement.parentElement.remove();
-    })
+    });
 }
 
 function callForAutoGenerateEventListener() {
     const arrayFields = document.querySelectorAll('input');
     for (let f of arrayFields) {
         if (f.type == 'number') {
-            f.addEventListener('change', generateNetPrice)
-            console.log(f);
+            f.addEventListener('change', generateNetPrice);
         }
     }
 }
@@ -67,31 +62,24 @@ function updateInvoiceDatabase(invoice) {
         });
 }
 
-function generateNetPrice() {
+function generateNetPrice(invoice) {
     const merchForm = document.getElementsByClassName('merchandise-fill-form');
-    const limit = merchForm[0].children.length
+    const limit = merchForm[0].children.length;
     let sum = 0;
 
-    console.log(merchForm);
-
     for (let i = 0; i < limit; i++) {
+        const quantity = id(`quantity-${i}`).value;
+        const unitPrice = id(`unit-price-${i}`).value;
+        const netPrice = merchForm[0].children[i].querySelector('span');
 
-        const quantity = id(`quantity-${i}`).value
-        const unitPrice = id(`unit-price-${i}`).value
-        console.log(merchForm[0].children[i]);
-        const netPrice = merchForm[0].children[i].querySelector('span')
-        console.log(netPrice);
-
-        netPrice.textContent = Number(quantity) * unitPrice
-
-        sum = sum + (Number(quantity) * unitPrice)
+        netPrice.textContent = Number(quantity) * unitPrice;
+        sum += (Number(quantity) * unitPrice);
     }
 
-    document.getElementById('total').textContent = sum
-    // document.getElementById('amount-in-words').textContent = towords(sum)
+    document.getElementById('total').textContent = sum;
+    invoice.total = sum;
+    // document.getElementById('amount-in-words').textContent = towords(sum);
 }
-
-
 
 function fetchInputs() {
     //get address fields
@@ -101,18 +89,16 @@ function fetchInputs() {
     const dateAndTime = document.getElementById('date').value;
 
     //get merchandise fields
-
-
     const merchForm = document.getElementsByClassName('merchandise-fill-form');
-    const limit = merchForm[0].children.length
+    const limit = merchForm[0].children.length;
 
-    const items = []
+    //iterate over the items and fetch each detail
+    const items = [];
     for (let i = 0; i < limit; i++) {
-        const quantity = id(`quantity-${i}`).value
-        const description = id(`description-${i}`).value
-        const unitPrice = id(`unit-price-${i}`).value
-        const currency = id('currency').value
-
+        const quantity = id(`quantity-${i}`).value;
+        const description = id(`description-${i}`).value;
+        const unitPrice = id(`unit-price-${i}`).value;
+        const currency = id('currency').value;
 
         items.push({
             order: {
@@ -124,7 +110,7 @@ function fetchInputs() {
                 },
                 Amount: Number(quantity) * unitPrice
             }
-        })
+        });
     }
 
     const Invoice = {
@@ -136,19 +122,16 @@ function fetchInputs() {
         },
         Orders: items
     }
-    Invoice.total = document.getElementById('total').textContent
-    console.log(Invoice);
-    generateNetPrice()
-    setTimeout(()=>{
-        updateInvoiceDatabase(Invoice)
-    },1)
+    Invoice.total = document.getElementById('total').textContent;
+    generateNetPrice(Invoice);
+    updateInvoiceDatabase(Invoice);
 }
 
 function addNewField() {
     // get the length of the table and set as the id of the field
     const merchForm = document.getElementsByClassName('merchandise-fill-form');
-    const limit = merchForm[0].children.length
-    const id = (Number(limit))
+    const limit = merchForm[0].children.length;
+    const id = (Number(limit));
     //create a new card for invoice input and append to the form.
 
     const newField = document.createElement('div');
@@ -181,9 +164,8 @@ function addNewField() {
         </div>
     `;
     document.getElementById('merchandise-fill-form').append(newField);
-    callForAutoGenerateEventListener()
+    callForAutoGenerateEventListener();
 }
-
 
 function id(id) {
     return document.getElementById(id)

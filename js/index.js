@@ -32,7 +32,7 @@ function main() {
     }
     else {
         alert('Please Login to Continue.......');
-        window.location.href = '/root/pages/login.html';
+        window.location.href = '../pages/login.html';
     }
 
     eventListeners();
@@ -224,7 +224,7 @@ function fetchInvoices() {
 }
 function viewInvoice(id) {
     localStorage.setItem("view-item", JSON.stringify(id));
-    location.href = "/root/pages/viewInvoice.html";
+    location.href = "../wpages/viewInvoice.html";
 }
 
 function deleteInvoice(id) {

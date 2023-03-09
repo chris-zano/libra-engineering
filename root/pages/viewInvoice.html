@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/root/styles/viewInvoice.css">
+    <title>Libra Engineering - Invoice #1900823</title>
+</head>
+
+<body>
+    <div class="spinner" id="spinner">
+        <img src="/root/assets/images/giphy.gif" alt="loading">
+    </div>
+    <header>
+        <nav>
+            <ul>
+                <li id="home"><a href="/">Home</a></li>
+                <li id="edit">Edit</li>
+                <li id="delete">Delete</li>
+                <li id="share">Share</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="header-file">
+                <div class="left">
+                    <img src="/root/assets/images/niicoIcon.png" alt="Header-logo">
+                </div>
+                <div class="right">
+                    <div class="title">Libra Engineering LTD</div>
+                    <div class="motto">Construction, Tractor and Equipment</div>
+                    <div class="links">
+                        <span>Website: <a href="https://libra-engineering.web.app/">
+                                www.libra-engineering.web.app</a></span>
+                        <span>Tel: <a href="tel:+233545868865"> +233 545868865</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="invoice-field">
+                <table>
+                    <thead class="address-header">
+                        <th>Receipient</th>
+                        <th>Address</th>
+                        <th>LPO_Number</th>
+                        <th>Date_and_Time</th>
+                    </thead>
+                    <tbody id="main_address_header">
+                        <!-- <tr>
+                            <td data-label="Receipient">Heavymat Industry</td>
+                            <td data-label="Address"> Lome</td>
+                            <td data-label="LPO_Number">109582</td>
+                            <td data-label="Date_and_Time">23rdjan 2020</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+                <table id="main_order_list">
+                    <thead>
+                        <th class="qty">Quantity</th>
+                        <th class="description">Description</th>
+                        <th class="unit-price">Unit_Price</th>
+                        <th class="net-price">Net_Price</th>
+                    </thead>
+                    <tbody id="order_list" class="order_list">
+                        <!-- <tr class="row_order_item">
+                            <td data-label="Quantity">12</td>
+                            <td data-label="Description">Lorem ipsum dolor sit amet.</td>
+                            <td data-label="Unit_Price">Ghc 7,020.00</td>
+                            <td data-label="Net_Price">Ghc 84,240.00</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+                <div class="summary-section">
+                    <div>
+                        <div class="amount-in-"><span><strong>Amount:</strong></span> 
+                            <span class="span-1">
+                                autogenerate
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="amount-in-figures">
+                            <span><strong>Total : </strong></span>
+                            <span class="span-2" id="total">
+                                Ghc 336,960
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/root/js/viewInvoice.js" type="module"></script>
+</body>
+
+</html>

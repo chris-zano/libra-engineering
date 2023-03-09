@@ -187,6 +187,10 @@ function fetchInvoices() {
                 infoDiv.classList.add('title');
                 infoDiv.innerHTML = 'No recent Invoices';
                 document.getElementById('list-of-rec-inv').append(infoDiv);
+
+                //remove spinner
+                document.getElementById("spinner").classList.remove("spinner");
+                document.getElementById("spinner").classList.add("hidden");
             }
             else {
                 querySnapshot.forEach((doc) => {
@@ -222,13 +226,42 @@ function fetchInvoices() {
             }
         });
 }
+
 function viewInvoice(id) {
     localStorage.setItem("view-item", JSON.stringify(id));
     location.href = "/pages/viewInvoice.html";
 }
 
 function deleteInvoice(id) {
+    const db = firebase.firestore();
+    //first add the doc to the delete database
 
+    db.collection("invoices-main")
+        .get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach(doc => {
+                if (id == doc.id) {
+                    db.collection("invoices_deleted_DB").add(doc.data())
+                        .then((docRef) => {
+                            alert("Document written with ID: ", docRef.id);
+                        })
+                        .catch((error) => {
+                            alert("Error adding document: ", error);
+                        });
+
+                    db.collection("invoices-main")
+                        .doc(doc.id)
+                        .delete(doc.id)
+                        .then(() => {
+                            console.log("Document successfully deleted!");
+                            window.location.href = "";
+                        })
+                        .catch((error) => {
+                            console.error("Error removing document: ", error);
+                        });
+                }
+            })
+        })
 }
 
 

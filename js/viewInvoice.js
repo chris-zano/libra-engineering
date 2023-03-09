@@ -33,6 +33,38 @@ function main() {
         document.getElementById("spinner").classList.add("spinner");
         getInvoice(orderId);
     }
+
+    document.getElementById("delete").addEventListener("click", () => {
+        const db = firebase.firestore();
+        //first add the doc to the delete database
+
+        db.collection("invoices-main")
+            .get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach(doc => {
+                    if (JSON.parse(localStorage.getItem("view-item")).trim() == doc.id) {
+                        db.collection("invoices_deleted_DB").add(doc.data())
+                            .then((docRef) => {
+                                alert("Document written with ID: ", docRef.id);
+                            })
+                            .catch((error) => {
+                                alert("Error adding document: ", error);
+                            });
+
+                        db.collection("invoices-main")
+                            .doc(doc.id)
+                            .delete(doc.id)
+                            .then(() => {
+                                console.log("Document successfully deleted!");
+                                window.location.href = "";
+                            })
+                            .catch((error) => {
+                                console.error("Error removing document: ", error);
+                            });
+                    }
+                })
+            })
+    })
 }
 
 async function getInvoice(id) {
@@ -40,6 +72,12 @@ async function getInvoice(id) {
     db.collection("invoices-main")
         .get()
         .then((querySnapshot) => {
+            if (querySnapshot.docs.length == 0 || querySnapshot.docs.length == undefined || querySnapshot.docs.length == null) {
+                location.href = "/";
+                //remove spinner
+                document.getElementById("spinner").classList.remove("spinner");
+                document.getElementById("spinner").classList.add("hidden");
+            }
             querySnapshot.forEach(doc => {
                 if (doc.id == id) {
                     /*
@@ -98,7 +136,7 @@ function createTable(data) {
 
         document.getElementById("order_list").append(tRow);
         var total = data.total;
-        document.getElementById("total").textContent =`${currency} ${total}` 
+        document.getElementById("total").textContent = `${currency} ${total}`
     }
     //remove spinner
     document.getElementById("spinner").classList.remove("spinner");

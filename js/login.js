@@ -55,7 +55,7 @@ function main() {
                                 console.log('passwords match')
                                 //redirect back to the home page
                                 window.sessionStorage.setItem('authState', JSON.stringify(true))
-                                window.location.href = '../index.html'
+                                window.location.href = '/index.html'
                             }
                             else { //if passwordds do not match alert user and clear password field and change button back to normal
                                 alert('passwords don\'t match');
